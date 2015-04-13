@@ -1,0 +1,16 @@
+---
+title: "Readme"
+author: "atops"
+date: "Sunday, April 12, 2015"
+output: html_document
+---
+
+This plot shows visibility data from Environmental Sensor Stations (ESS) on a major freeway in the United States that is often subject to foggy conditions, which reduces visibility and which has contributed  to too many severe accidents.
+
+The location of each ESS is denoted by Mile Marker (MM), from 1.2 to 16.9; each station is arranged in order vertically according to its location.
+
+When visibility is not impeded, the stations return a value of 6562 ft, which on the plot is the flatline at approx. 1.2 mi.
+
+Data from the 2013 calendar year was made available for analysis. Each point is a reading taken at 10 minute intervals.
+
+Select the date range for days to view. Data shown on the plot begins at 0:00 on the first date and ends at 23:50 of the second date. It is intended to give the viewer an understanding of the visibility dynamics along the freeway to enable more detailed analysis using additional data sources. It is intended to show where visibility is most likely to be impeded, how fog events propagate over space and time, and whether they are transient in nature or whether they move in and out slowly.

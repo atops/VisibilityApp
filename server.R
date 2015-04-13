@@ -27,23 +27,25 @@ df <- df %>%
         gather(MileMarker, Visibility, MM.1.2:MM.16.9) %>%
         mutate(Visibility_mi = Visibility/5280)
 
+milemarkers <- levels(df$MileMarker)
 
-shinyServer(function(input, output) {
+shinyServer(function(input, output, session) {
         
-#         output$t1 <- renderText({
-#                 as.character(input$dates[1])
-#         })
-#         output$t2 <- renderText({
-#                 as.character(input$dates[2])
-#         })
-        
+        observe({
+                updateCheckboxGroupInput(session, "stations",
+                          choices = milemarkers,
+                          selected = milemarkers)
+        })
+
         output$timeseries <- renderPlot({
 
                 # Subset by time period and facet by MileMarker
                 t1 <- strftime(input$dates[1], "%Y-%m-%d") # inclusive
                 t2 <- strftime(input$dates[2] + days(1), "%Y-%m-%d") # inclusive of 
+                
                 df2 <- df %>% 
-                        filter (Date...Time >= t1 & Date...Time < t2)
+                        filter(Date...Time >= t1 & Date...Time < t2) %>%
+                        filter(MileMarker %in% input$stations)
                 qplot(data=df2, 
                         x=Date...Time, 
                         y=Visibility_mi, 

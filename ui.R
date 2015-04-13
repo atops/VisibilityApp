@@ -18,11 +18,15 @@ shinyUI(fluidPage(
                         h3("2013 Data"),
                         dateRangeInput("dates",
                                 "Date Range:",
-                                start = "2013-07-16",
-                                end = "2013-07-24",
+                                start = "2013-07-01",
+                                end = "2013-07-07",
                                 min = "2013-01-01",
                                 max = "2013-12-31",
                                 format = "mm/dd/yyyy"),
+                        checkboxGroupInput("stations",
+                                "ESS:",
+                                choices = c("MM.1.2","MM.1.8","MM.2.7","MM.3.05","MM.4.4","MM.5.3","MM.6.6","MM.7.3","MM.9.0","MM.9.6","MM.11.3","MM.16.9")),
+                                #multiple = TRUE),
                         p("This plot shows visibility data from Environmental Sensor Stations (ESS) on a major freeway in the United States that is often subject to foggy conditions, which reduces visibility and which has contributed  to too many severe accidents.\n"),
                         p("The location of each ESS is denoted by Mile Marker (MM), from 1.2 to 16.9; each station is arranged in order vertically according to its location.\n"),
                         p("When visibility is not impeded, the stations return a value of 6562 ft, which on the plot is the flatline at approx. 1.2 mi."),
@@ -32,8 +36,6 @@ shinyUI(fluidPage(
 
                 # Show a plot of the generated distribution
                 mainPanel(
-                        #textOutput("t1"),
-                        #textOutput("t2"),
                         plotOutput("timeseries")
                 )
         )
