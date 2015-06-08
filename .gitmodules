@@ -1,0 +1,3 @@
+[submodule "devdataprod"]
+	path = devdataprod
+	url = ./devdataprod
